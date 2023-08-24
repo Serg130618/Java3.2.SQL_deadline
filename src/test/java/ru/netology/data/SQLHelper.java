@@ -11,6 +11,14 @@ import java.sql.SQLException;
 public class SQLHelper {
     private static QueryRunner runner = new QueryRunner();
     private SQLHelper(){}
+    @SneakyThrows
+    public static void cleanDatabase() {
+        var connection = getConn();
+        runner.execute(connection, "DELETE FROM auth_codes");
+        runner.execute(connection, "DELETE FROM cards");
+        runner.execute(connection, "DELETE FROM card_transactions");
+        runner.execute(connection, "DELETE FROM users");
+    }
 
 
     private static Connection getConn() throws SQLException{
@@ -26,13 +34,6 @@ public class SQLHelper {
             exception.printStackTrace();
         } return null;
     }
-    @SneakyThrows
-    public static void cleanDatabase() {
-        var connection = getConn();
-        runner.execute(connection, "DELETE FROM auth_codes");
-        runner.execute(connection, "DELETE FROM cards");
-        runner.execute(connection, "DELETE FROM card_transactions");
-        runner.execute(connection, "DELETE FROM users");
-    }
+
 
 }

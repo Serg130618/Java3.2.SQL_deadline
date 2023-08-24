@@ -18,7 +18,7 @@ public class BankTest {
     }
 
     @Test
-    @DisplayName("Should successfully login to dashboard with exist login and password from sut test data")
+    @DisplayName("Should successfully login to dashboard with exist login and password")
     public void shouldValidLogin() {
         var loginPage = open("http://localhost:9999", LoginPage.class);
         var authInfo = DataHelper.getAuthInfo();

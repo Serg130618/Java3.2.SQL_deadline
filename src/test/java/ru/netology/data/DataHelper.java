@@ -32,7 +32,7 @@ public class DataHelper {
     public static AuthInfo generateRandomUser() {
         return new AuthInfo(generateRandomLogin(), generateRandomPassword());
     }
-    public static VerificationCode generateRandomCode() {
+    private static VerificationCode generateRandomCode() {
 
         return new VerificationCode(faker.numerify("######"));
     }
